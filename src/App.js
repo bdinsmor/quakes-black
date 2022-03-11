@@ -15,6 +15,7 @@ const App = (props) => (
         <Route path="/" element={<Home />}>
           <Route path="lineups" element={<Lineups />} />
           <Route path="players" element={<Players />} />
+          <Route path="stats" element={<Stats />} />
           <Route path="*" element={<Lineups />} />
         </Route>
       </Routes>
