@@ -5,9 +5,9 @@ import dayjs from 'dayjs';
 import moment from 'moment';
 import { getFirestore, collection, doc, orderBy, query, onSnapshot, where, getDocs, setDoc } from 'firebase/firestore';
 const db = getFirestore(firebaseApp);
-const playersDb = collection(db, 'quakes-players');
-const lineupsDb = collection(db, 'quakes-lineups');
-const positionsDb = collection(db, 'quakes-positions');
+const playersDb = collection(db, 'players');
+const lineupsDb = collection(db, 'lineups');
+const positionsDb = collection(db, 'positions');
 
 const lineupsSubj = new Subject();
 

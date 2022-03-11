@@ -7,7 +7,7 @@ module.exports = {
       plugin: CracoAntDesignPlugin,
       options: {
         customizeTheme: {
-          '@primary-color': '#063561',
+          '@primary-color': '#111',
         },
       },
     },
@@ -17,7 +17,7 @@ module.exports = {
         lessLoaderOptions: {
           lessOptions: {
             modifyVars: {
-              'primary-color': '#063561',
+              'primary-color': '#111',
             },
             javascriptEnabled: true,
           },
