@@ -17,4 +17,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LOS_GATOS_REVOLUTION }}'
           channelId: live
-          projectId: los-gatos-revolution
+          projectId: quakes-black-6773c
