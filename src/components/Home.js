@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { OrderedListOutlined, BarChartOutlined, UserOutlined } from '@ant-design/icons';
+import { OrderedListOutlined, UserOutlined } from '@ant-design/icons';
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { Menu, Layout } from 'antd';
