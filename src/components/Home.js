@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { OrderedListOutlined, BarChartOutlined, UserOutlined } from '@ant-design/icons';
-import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
+
 import { Menu, Layout } from 'antd';
 import HeaderBar from './HeaderBar';
 
@@ -10,6 +11,7 @@ const MenuItemGroup = Menu.ItemGroup;
 const { Header, Sider } = Layout;
 
 const Home = (props) => {
+  let navigate = useNavigate();
   const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentPage, setCurrentPage] = useState('Lineups');
@@ -53,16 +55,18 @@ const Home = (props) => {
   };
 
   const init = async function () {
+    console.log('inside init');
     if (location) {
       const pathName = '.' + location.pathname;
       let found = false;
+      console.log('path name: ' + pathName);
       for (var i = 0; i < listItems.length; i++) {
         const kids = listItems[i].children;
         if (kids) {
           for (var j = 0; j < kids.length; j++) {
             const kid = kids[j];
             if (kid.link === pathName) {
-              // console.log('setting page to: ' + kid.label);
+              console.log('setting page to: ' + kid.label);
               setCurrentPage(kid.label);
               found = true;
               break;
@@ -75,6 +79,7 @@ const Home = (props) => {
   };
 
   useEffect(() => {
+    navigate('../linueps', { replace: true });
   }, []);
 
   useEffect(() => {
@@ -117,7 +122,7 @@ const Home = (props) => {
                     {group.children.map(function (child, childIter) {
                       return (
                         <Menu.Item key={child.key} icon={child.icon} title={null}>
-                          <NavLink key={child.key} onClick={() => updateCurrentPage(child.label)} className={(navData) => navData.isActive ? "active-link" : "" } to={child.link}>
+                          <NavLink key={child.key} onClick={() => updateCurrentPage(child.label)} className={(navData) => (navData.isActive ? 'active-link' : '')} to={child.link}>
                             {child.label}
                           </NavLink>
                         </Menu.Item>

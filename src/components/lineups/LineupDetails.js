@@ -169,7 +169,7 @@ const LineupDetails = (props) => {
     try {
       calculatePlayerBenchInnings(player);
       calculatePlayerOutfieldInnings(player);
-      calculatePlayerRestrictedInnings(player);
+      // calculatePlayerRestrictedInnings(player);
       calculateOutfieldMet(player);
 
       lineup.playing[playerIndex] = { ...player };
@@ -349,7 +349,7 @@ const LineupDetails = (props) => {
     }
     player.numOutfield = num;
   };
-
+  /*
   const calculatePlayerRestrictedInnings = (player) => {
     const innings = player.innings;
     let pos = [];
@@ -374,7 +374,7 @@ const LineupDetails = (props) => {
     }
     player.restrictedPositions = disp;
   };
-
+*/
   const generateDiagram = () => {
     const num = innings.length;
     for (let i = 0; i < num; i++) {
@@ -632,11 +632,6 @@ const LineupDetails = (props) => {
                             # Bench
                           </TableCell>
                         )}
-                        {!isPrinting && (
-                          <TableCell size="small" className="no-print">
-                            # Prime
-                          </TableCell>
-                        )}
                         {!isPrinting && <TableCell size="small" className="no-print"></TableCell>}
                       </TableRow>
                     </TableHead>
@@ -678,7 +673,7 @@ const LineupDetails = (props) => {
                                             editPlayer(row);
                                           }}
                                         >
-                                          {row.firstName.substring(0,1) + '. ' + row.lastName}
+                                          {row.firstName.substring(0, 1) + '. ' + row.lastName}
                                         </Button>
                                       </TableCell>
                                       {row.innings.map((inning, inningIndex) => (
@@ -722,11 +717,6 @@ const LineupDetails = (props) => {
                                       {!isPrinting && (
                                         <TableCell size="small" className="no-print" style={{ color: row.textColor }}>
                                           {row.numBench}
-                                        </TableCell>
-                                      )}
-                                      {!isPrinting && (
-                                        <TableCell size="small" className="no-print" style={{ color: row.textColor }}>
-                                          {row.restrictedPositions}
                                         </TableCell>
                                       )}
                                       {!isPrinting && (
@@ -833,7 +823,7 @@ const LineupDetails = (props) => {
                   {lineup.notPlaying.map((notP, notPlayingIndex) => {
                     return (
                       <ListItem key={`not_playing_${notPlayingIndex}`} style={{ backgroundColor: notP.backgroundColor, color: notP.textColor }}>
-                        <ListItemText primary={notP.firstName.substring(0,1) + '. ' + notP.lastName} style={{ color: notP.textColor }} />
+                        <ListItemText primary={notP.firstName.substring(0, 1) + '. ' + notP.lastName} style={{ color: notP.textColor }} />
                         <ListItemSecondaryAction>
                           <IconButton
                             edge="end"

@@ -163,7 +163,7 @@ const Lineups = (props) => {
 
       const newLineup = {
         date: dayjs(new Date()).format('MM/DD/YYYY'),
-        location: 'Balzer Field',
+        location: 'MVRC Field A',
         opponent: '',
         season: selectedSeason,
         year: parseInt(selectedYear),
