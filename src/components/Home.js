@@ -35,13 +35,13 @@ const Home = (props) => {
           type: 'navlink',
           icon: <UserOutlined />,
         },
-        {
+        /* {
           key: 'stats',
           label: 'Stats',
           link: './stats',
           type: 'navlink',
           icon: <BarChartOutlined />,
-        },
+        },*/
       ],
     },
   ];
