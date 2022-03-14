@@ -101,6 +101,7 @@ const LineupDetails = (props) => {
     { number: 4, playing: [], sitting: [] },
     { number: 5, playing: [], sitting: [] },
     { number: 6, playing: [], sitting: [] },
+    { number: 7, playing: [], sitting: [] },
   ]);
 
   const FieldIcon = (props) => <Icon component={FieldSvg} {...props} style={{ fontSize: '28px', marginTop: '-3px' }} />;
@@ -181,7 +182,7 @@ const LineupDetails = (props) => {
   };
 
   const validateInnings = () => {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
       lineup.inningValidations[i] = { msg: validateInning(i + 1), tooMany: checkInningForDups(i + 1) };
     }
     setLineup({ ...lineup });
@@ -616,6 +617,9 @@ const LineupDetails = (props) => {
                         </TableCell>
                         <TableCell size="small" align="center">
                           6th Inning
+                        </TableCell>
+                        <TableCell size="small" align="center">
+                          7th Inning
                         </TableCell>
                         {!isPrinting && (
                           <TableCell size="small" className="no-print">
