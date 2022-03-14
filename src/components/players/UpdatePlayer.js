@@ -314,6 +314,7 @@ const UpdatePlayer = (props) => {
                       return <></>;
                     }
                   })}
+                  </div>
                   <div className="sittingBox">
                     <strong>Be Ready:</strong>
                     <div className="sitting">
