@@ -316,7 +316,7 @@ const UpdatePlayer = (props) => {
                   })}
                 </div>
                 <div className="sittingBox">
-                  <strong>Be Ready:</strong>
+                  <strong>On Bench:</strong>
                   <div className="sitting">
                     <div>
                       <div style={{ padding: '3px' }} className="sitting">
@@ -348,7 +348,7 @@ const UpdatePlayer = (props) => {
                 </div>
                 <div style={{ marginLeft: '25px', marginTop: '24px' }}>
                   <h3>Batting Order Stats</h3>
-                  <div style={{ marginLeft: '25px', marginTop: '24px' }}>
+                  <div style={{ marginTop: '24px' }}>
                     {Object.keys(battingOrderStats).map((key) => {
                       return (
                         <Card>
