@@ -773,6 +773,9 @@ const LineupDetails = (props) => {
                               <TableCell align="center" size="small">
                                 {lineup.inningValidations[5].msg}
                               </TableCell>
+                              <TableCell align="center" size="small">
+                                {lineup.inningValidations[6].msg}
+                              </TableCell>
                             </React.Fragment>
                           )}
 
@@ -806,6 +809,9 @@ const LineupDetails = (props) => {
                               </TableCell>
                               <TableCell align="center" size="small">
                                 {lineup.inningValidations[5].tooMany}
+                              </TableCell>
+                              <TableCell align="center" size="small">
+                                {lineup.inningValidations[6].tooMany}
                               </TableCell>
                             </React.Fragment>
                           )}

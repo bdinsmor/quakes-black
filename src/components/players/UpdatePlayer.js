@@ -22,7 +22,7 @@ const UpdatePlayer = (props) => {
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [statsLoaded, setStatsLoaded] = useState(false);
-    const [avgBattingOrder, setAvgBattingOrder] = useState({});
+  const [avgBattingOrder, setAvgBattingOrder] = useState({});
   const [selectedBackgroundColor, setSelectedBackgroundColor] = useState({ color: '#fff' });
   const [selectedColor, setSelectedColor] = useState({ color: '#000' });
 
@@ -155,7 +155,7 @@ const UpdatePlayer = (props) => {
         }
       }
     }
-     avgBattingSpot = totalBattingSpot / numGames;
+    avgBattingSpot = totalBattingSpot / numGames;
     setAvgBattingOrder(avgBattingSpot);
     setStatsLoaded(true);
     setFieldingStats(fs);
@@ -314,14 +314,13 @@ const UpdatePlayer = (props) => {
                       return <></>;
                     }
                   })}
-                  </div>
-                  <div className="sittingBox">
-                    <strong>Be Ready:</strong>
-                    <div className="sitting">
-                      <div>
-                        <div style={{ padding: '3px' }} className="sitting">
-                          <span>{fieldingStats['BN'] ? fieldingStats['BN'].count : 0}</span>
-                        </div>
+                </div>
+                <div className="sittingBox">
+                  <strong>Be Ready:</strong>
+                  <div className="sitting">
+                    <div>
+                      <div style={{ padding: '3px' }} className="sitting">
+                        <span>{fieldingStats['BN'] ? fieldingStats['BN'].count : 0}</span>
                       </div>
                     </div>
                   </div>
@@ -339,7 +338,7 @@ const UpdatePlayer = (props) => {
             key="3"
           >
             {statsLoaded && battingOrderStats && props.player && (
-             <div style={{ marginLeft: '25px', marginTop: '24px' }}>
+              <div style={{ marginLeft: '25px', marginTop: '24px' }}>
                 <div>
                   <div style={{ marginLeft: '25px', marginTop: '24px' }}>
                     <Card>
@@ -347,16 +346,17 @@ const UpdatePlayer = (props) => {
                     </Card>
                   </div>
                 </div>
-              <div style={{ marginLeft: '25px', marginTop: '24px' }}>
-                <h3>Batting Order Stats</h3>
                 <div style={{ marginLeft: '25px', marginTop: '24px' }}>
-                  {Object.keys(battingOrderStats).map((key) => {
-                    return (
-                      <Card>
-                        <Statistic title={battingOrderStats[key].label} value={battingOrderStats[key].count} valueStyle={{ color: '#3f8600' }} />
-                      </Card>
-                    );
-                  })}
+                  <h3>Batting Order Stats</h3>
+                  <div style={{ marginLeft: '25px', marginTop: '24px' }}>
+                    {Object.keys(battingOrderStats).map((key) => {
+                      return (
+                        <Card>
+                          <Statistic title={battingOrderStats[key].label} value={battingOrderStats[key].count} valueStyle={{ color: '#3f8600' }} />
+                        </Card>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             )}

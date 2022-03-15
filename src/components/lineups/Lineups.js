@@ -145,7 +145,7 @@ const Lineups = (props) => {
       allPlayers.forEach((player) => {
         const p = { ...player };
         const innings = [];
-        for (let j = 0; j < 6; j++) {
+        for (let j = 0; j < 7; j++) {
           const position = getPositionByNumber(playerIndex);
           const inning = {
             inning: j + 1,
@@ -168,7 +168,7 @@ const Lineups = (props) => {
         season: selectedSeason,
         year: parseInt(selectedYear),
         playing: playersPlaying,
-        inningValidations: [{ msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }],
+        inningValidations: [{ msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }, { msg: '' }],
       };
       // console.log('new Linup');
       await DataService.updateLineup(newLineup);
