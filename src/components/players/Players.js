@@ -211,6 +211,7 @@ const Players = (props) => {
             loading={isDataLoading}
             columns={columns}
             dataSource={items}
+            rowClassName="roster"
             onRow={(record, rowIndex) => {
               return {
                 onClick: (event) => {

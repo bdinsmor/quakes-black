@@ -24,14 +24,14 @@ const Home = (props) => {
         {
           key: 'lineups',
           label: 'Lineups',
-          link: './lineups',
+          link: 'lineups',
           type: 'navlink',
           icon: <OrderedListOutlined />,
         },
         {
           key: 'players',
           label: 'Roster',
-          link: './players',
+          link: 'players',
           type: 'navlink',
           icon: <UserOutlined />,
         },
@@ -55,18 +55,16 @@ const Home = (props) => {
   };
 
   const init = async function () {
-    console.log('inside init');
     if (location) {
       const pathName = '.' + location.pathname;
+
       let found = false;
-      console.log('path name: ' + pathName);
       for (var i = 0; i < listItems.length; i++) {
         const kids = listItems[i].children;
         if (kids) {
           for (var j = 0; j < kids.length; j++) {
             const kid = kids[j];
             if (kid.link === pathName) {
-              console.log('setting page to: ' + kid.label);
               setCurrentPage(kid.label);
               found = true;
               break;
@@ -120,9 +118,11 @@ const Home = (props) => {
                 return (
                   <MenuItemGroup key={group.key} title="">
                     {group.children.map(function (child, childIter) {
+                      const splitLocation = location.pathname.split('/');
+                      console.log(splitLocation[1]);
                       return (
                         <Menu.Item key={child.key} icon={child.icon} title={null}>
-                          <NavLink key={child.key} onClick={() => updateCurrentPage(child.label)} className={(navData) => (navData.isActive ? 'active-link' : '')} to={child.link}>
+                          <NavLink key={child.key} onClick={() => updateCurrentPage(child.label)} to={child.link}>
                             {child.label}
                           </NavLink>
                         </Menu.Item>
