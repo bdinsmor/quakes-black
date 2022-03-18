@@ -119,6 +119,7 @@ const LineupDetails = (props) => {
     const l = { ...lineup };
     l.id = null;
     l.date = dayjs(new Date()).format('MM/DD/YYYY');
+    l.numInningsFinished = 7;
     props.onSaveLineup(l);
   };
 
