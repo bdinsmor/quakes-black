@@ -156,6 +156,7 @@ const Lineups = (props) => {
         }
         p.index = playerIndex;
         p.innings = innings;
+        p.numInningsFinished = 7;
         playersPlaying.push(p);
         playerIndex++;
       });
