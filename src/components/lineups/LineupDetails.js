@@ -673,7 +673,7 @@ const LineupDetails = (props) => {
                                       <TableCell size="small" className="print-small-margins" align="left" style={{ color: row.textColor }}>
                                         <Button
                                           type="link"
-                                          style={{ color: row.textColor }}
+                                          style={{ color: row.textColor, paddingLeft: 0 }}
                                           onClick={() => {
                                             editPlayer(row);
                                           }}
@@ -870,22 +870,6 @@ const LineupDetails = (props) => {
                                 </span>
                               );
                             })}
-                          {inning.sitting && inning.sitting.length > 0 && (
-                            <div className="sittingBox">
-                              <strong>Ready:</strong>
-                              <div className="sitting">
-                                {inning.sitting.map((player, sittingIndex) => {
-                                  return (
-                                    <div key={`sitting_box_${player.nickname}_${sittingIndex}`}>
-                                      <div style={{ padding: '3px', backgroundColor: player.backgroundColor, color: player.textColor }} className="sitting">
-                                        {player.nickname}
-                                      </div>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          )}
                         </div>
                       );
                     })}

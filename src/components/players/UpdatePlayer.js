@@ -133,8 +133,11 @@ const UpdatePlayer = (props) => {
             for (let k = 0; k < innings.length; k++) {
               if (k < numInningsFinished) {
                 const inning = innings[k];
-                const positionAbbr = inning.abbr;
+                let positionAbbr = inning.abbr;
                 const positionNumber = inning.number;
+                if (positionNumber === 0) {
+                  positionAbbr = 'bench';
+                }
                 if (!fs[positionAbbr]) {
                   fs[positionAbbr] = {
                     count: 0,
@@ -207,7 +210,7 @@ const UpdatePlayer = (props) => {
       <div hidden={isLoading}>
         <Row align="left" style={{ paddingLeft: '8px', paddingTop: '16px', backgroundColor: selectedBackgroundColor.color }}>
           <Col span={12}>
-            <div>
+            <div key={`title_${props.player.nickname}`}>
               {props.player && <Title style={{ color: selectedColor.color }}>{props.player.nickname && props.player.nickname !== '' ? props.player.nickname : 'New Player'}</Title>}
             </div>
           </Col>
@@ -316,12 +319,10 @@ const UpdatePlayer = (props) => {
                   })}
                 </div>
                 <div className="sittingBox">
-                  <strong>On Bench:</strong>
+                  <strong>Bench:</strong>
                   <div className="sitting">
-                    <div>
-                      <div style={{ padding: '3px' }} className="sitting">
-                        <span>{fieldingStats['BN'] ? fieldingStats['BN'].count : 0}</span>
-                      </div>
+                    <div key={`benchlabel_${props.player.nickname}`} style={{ padding: '3px' }} className="sitting">
+                      <span>{fieldingStats['bench'] ? fieldingStats['bench'].count : 0}</span>
                     </div>
                   </div>
                 </div>
@@ -341,18 +342,23 @@ const UpdatePlayer = (props) => {
               <div style={{ marginLeft: '25px', marginTop: '24px' }}>
                 <div>
                   <div style={{ marginLeft: '25px', marginTop: '24px' }}>
-                    <Card>
-                      <Statistic title="Avg Spot in the Lineup" value={avgBattingOrder} valueStyle={{ color: '#3f8600' }} />
+                    <Card key={`avg_order_card_${props.player.nickname}`}>
+                      <Statistic key={`avg_order_${props.player.nickname}`} title="Avg Spot in the Lineup" value={avgBattingOrder} valueStyle={{ color: '#3f8600' }} />
                     </Card>
                   </div>
                 </div>
                 <div style={{ marginLeft: '25px', marginTop: '24px' }}>
                   <h3>Batting Order Stats</h3>
                   <div style={{ marginTop: '24px' }}>
-                    {Object.keys(battingOrderStats).map((key) => {
+                    {Object.keys(battingOrderStats).map((key, orderIndex) => {
                       return (
-                        <Card>
-                          <Statistic title={battingOrderStats[key].label} value={battingOrderStats[key].count} valueStyle={{ color: '#3f8600' }} />
+                        <Card key={`b_order_card_${props.player.nickname}_${orderIndex}`}>
+                          <Statistic
+                            key={`b_order_${props.player.nickname}_${orderIndex}`}
+                            title={battingOrderStats[key].label}
+                            value={battingOrderStats[key].count}
+                            valueStyle={{ color: '#3f8600' }}
+                          />
                         </Card>
                       );
                     })}

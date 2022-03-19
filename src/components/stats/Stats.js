@@ -199,8 +199,8 @@ const Stats = (props) => {
       sorter: (a, b) => a['RF'] > b['RF'],
     },
     {
-      title: 'BN',
-      dataIndex: 'BN',
+      title: '-',
+      dataIndex: '-',
       render(text, record) {
         return {
           props: {
@@ -210,7 +210,7 @@ const Stats = (props) => {
         };
       },
 
-      sorter: (a, b) => a['BN'] > b['BN'],
+      sorter: (a, b) => a['-'] > b['-'],
     },
   ];
 
@@ -255,7 +255,7 @@ const Stats = (props) => {
               LF: 0,
               CF: 0,
               RF: 0,
-              BN: 0,
+              '-': 0,
             };
           }
           const numInningsFinished = lineup.numInningsFinished;
