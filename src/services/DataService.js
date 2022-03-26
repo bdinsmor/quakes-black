@@ -303,7 +303,6 @@ const DataService = {
           for (let j = 0; j < lineup.playing.length; j++) {
             if (lineup.playing[j].id === updatedPlayer.id) {
               let player = lineup.playing[j];
-              console.log('will update ' + player.backgroundColor + ' to ' + updatedPlayer.backgroundColor);
               player.firstName = updatedPlayer.firstName;
               player.lastName = updatedPlayer.lastName;
               player.textColor = updatedPlayer.textColor;

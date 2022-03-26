@@ -39,63 +39,6 @@ const Lineups = (props) => {
     }
   };
 
-  /*
-  const onPlayerUpdated = async (updatedPlayer) => {
-    let saved = false;
-    for (let lineupGroup of items) {
-      let found = false;
-      let lineups = lineupGroup.lineups;
-      for (let lineup of lineups) {
-        if (lineup.notPlaying) {
-          for (let i = 0; i < lineup.notPlaying.length; i++) {
-            if (lineup.notPlaying[i].id === updatedPlayer.id) {
-              let player = lineup.playing[i];
-              player.firstName = updatedPlayer.firstName;
-              player.lastName = updatedPlayer.lastName;
-              player.textColor = updatedPlayer.textColor;
-              player.backgroundColor = updatedPlayer.backgroundColor;
-              player.dateOfBirth = updatedPlayer.dateOfBirth;
-              player.jersey = updatedPlayer.jersey;
-              player.nickname = updatedPlayer.nickname;
-              lineup.notPlaying[i] = player;
-              lineup.notPlaying = [...lineup.notPlaying];
-              found = true;
-              break;
-            }
-          }
-        }
-
-        if (!found) {
-          for (let j = 0; j < lineup.playing.length; j++) {
-            if (lineup.playing[j].id === updatedPlayer.id) {
-              let player = lineup.playing[j];
-              console.log('will update ' + player.backgroundColor + ' to ' + updatedPlayer.backgroundColor);
-              player.firstName = updatedPlayer.firstName;
-              player.lastName = updatedPlayer.lastName;
-              player.textColor = updatedPlayer.textColor;
-              player.backgroundColor = updatedPlayer.backgroundColor;
-              player.dateOfBirth = updatedPlayer.dateOfBirth;
-              player.jersey = updatedPlayer.jersey;
-              player.nickname = updatedPlayer.nickname;
-              lineup.playing[j] = player;
-              found = true;
-
-              lineup.playing = [...lineup.playing];
-              break;
-            }
-          }
-        }
-        if (found) {
-          await DataService.updateLineup(lineup);
-          saved = true;
-        }
-      }
-    }
-    if (saved) {
-      //  getOtherData();
-    }
-  };*/
-
   const onCurrentYearChange = async (value) => {
     setSelectedYear(value);
   };
